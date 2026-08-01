@@ -1,0 +1,147 @@
+#!/bin/bash
+
+set -euo pipefail
+
+VERT='\033[0;32m'
+JAUNE='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${VERT}                                   ▄▄                    ${NC}"
+echo -e "${VERT}                  █▄                ██       █▄  █▄      ${NC}"
+echo -e "${VERT}       ▄          ██                ██      ▄██▄▄██▄     ${NC}"
+echo -e "${VERT} ▄▀▀█▄ ████▄▄███▀ ████▄ ▄██▀█ ████▄ ██ ▄▀▀█▄ ██  ██ ▄██▀█${NC}"
+echo -e "${VERT} ▄█▀██ ██   ██    ██ ██ ▀███▄ ██ ██ ██ ▄█▀██ ██  ██ ▀███▄${NC}"
+echo -e "${VERT}▄▀█▄██▄█▀  ▄▀███▄▄██ ███▄▄██▀▄████▀▄██▄▀█▄██▄██ ▄███▄▄██▀${NC}"
+echo -e "${VERT}                              ██                         ${NC}"
+echo -e "${VERT}                              ▀                          ${NC}"
+
+echo -e "${JAUNE}Bienvenue dans le script de configuration Archsplatts Alpine Linux!${NC}\n"
+
+echo -e "${JAUNE}(Veuillez activer le dépôt community dans /etc/apk/repositories avant de commencer)${NC}\n"
+
+if [ -t 0 ]; then
+    read -p "Appuyez sur Entrée pour continuer... "
+fi   
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[1/10] Mise à jour du système${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+apk update
+apk upgrade -y
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[2/10] Installation des outils terminal${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+TERM_PKGS=(
+	"alacritty"
+ 	"bat" 
+ 	"btop" 
+ 	"calcurse" 
+ 	"dust" 
+ 	"eza"
+ 	"micro" 
+ 	"starship"
+ 	"trash-cli"
+ 	"unzip"
+ 	"yazi" 
+	"zip"
+ 	"zsh" 
+ 	"zsh-autosuggestions" 
+ 	"zsh-syntax-highlighting"
+)
+
+apk add "${TERM_PKGS[@]}"
+chsh -s /bin/zsh
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[3/10] Installation des locales${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+apk add musl-locales musl-locales-lang xfdesktop-lang
+echo 'export LANG=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
+echo 'export LC_ALL=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[4/10] Installation de l'environnement${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+setup-xorg-base
+setup-desktop xfce
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[5/10] Installation des paquets audio${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+apk add pipewire pipewire-pulse pipewire-alsa wireplumber  
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[6/10] Installation des programmes${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+APPS_PKGS=(
+	"audacity"
+	"gnome-disk-utility" 
+	"firefox" 
+	"galculator" 
+	"geany"
+	"lollypop"
+	"mpv"
+	"qbittorrent"
+	"rhythmbox"
+	"thunderbird"
+	"ufw"
+	"xarchiver"
+	"zathura"
+	"zathura-pdf-mupdf"
+)
+
+apk add "${APPS_PKGS[@]}"
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[7/10] Installation des icones & polices${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+THEME_PKGS=(
+	"breeze-cursors"
+	"font-ubuntu-mono-nerd" 
+	"font-ubuntu-nerd" 
+	"papirus-icon-theme"
+) 
+
+apk add "${THEME_PKGS[@]}"
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[8/10] Copie des dotfiles${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+mkdir -p ~/.scripts
+mkdir -p ~/Images/Wallpapers
+cd ~/alpine-config
+cp zshrc ~/.zshrc
+cp -r config/* ~/.config
+cp papirus-folders ~/.scripts
+cp cabin-2.jpg ~/Images/Wallpapers
+chmod u+x ~/.scripts/papirus-folders
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[9/10] Activation du pare-feu${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+rc-update add ufw
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[10/10] Installation de catppuccin papirus${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+git clone https://github.com/catppuccin/papirus-folders.git
+cd papirus-folders
+cp -r src/* /usr/share/icons/Papirus  
+~/.scripts/papirus-folders -C cat-mocha-blue
+
+echo -e "${VERT}╔════════════════════════════════════════╗${NC}"
+echo -e "${VERT}║  Installation terminée avec succès !   ║${NC}"
+echo -e "${VERT}╚════════════════════════════════════════╝${NC}\n"
+
+echo -e "${JAUNE}⚠ Veuillez redémarrer votre système pour appliquer tous les changements.${NC}\n"
