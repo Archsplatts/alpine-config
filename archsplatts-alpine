@@ -45,6 +45,7 @@ TERM_PKGS=(
  	"starship"
  	"trash-cli"
  	"unzip"
+	"xdg-user-dirs"
  	"yazi" 
 	"zip"
  	"zsh" 
@@ -68,6 +69,7 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 
 setup-xorg-base
 setup-desktop xfce
+xdg-user-dirs-update
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[5/9] Installation des paquets audio${NC}"
