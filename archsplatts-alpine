@@ -91,6 +91,7 @@ APPS_PKGS=(
 	"mpv"
 	"qbittorrent"
 	"rhythmbox"
+	"rofi"
 	"thunderbird"
 	"ufw"
 	"xarchiver"
