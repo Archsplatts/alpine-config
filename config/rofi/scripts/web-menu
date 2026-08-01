@@ -1,0 +1,41 @@
+#!/bin/bash
+
+options="ArchWiki\0icon\x1fdistributor-logo-archlinux
+BraveSearch\0icon\x1fbrave
+Korben\0icon\x1fdistributor-logo-calculate-linux
+ManjaroForum\0icon\x1fmanjaro
+Movix\0icon\x1fcom.github.artemanufrij.playmyvideos
+ProtonDB\0icon\x1fdistributor-logo-steamos
+Twitch\0icon\x1ftwitch-indicator
+Youtube\0icon\x1fyoutube"
+
+selection=$(echo -e "$options" | rofi -dmenu -show-icons -icon-theme "Papirus" -config ~/.config/rofi/web-menu.rasi)
+
+if [[ -n "$selection" ]]; then
+    case "$selection" in
+        "ArchWiki")
+            firefox https://wiki.archlinux.org
+            ;;
+   		"BraveSearch")
+   		   	firefox https://search.brave.com 
+   		   	 ;;     
+  		"Korben")
+  			firefox https://korben.info
+  			;;          
+		"ManjaroForum")
+			firefox https://forum.manjaro.org/c/announcements/11
+			;;
+		"Movix")
+			firefox https://movix.bet
+			;;
+        "ProtonDB")
+            firefox https://www.protondb.com
+            ;;
+		"Twitch")
+			firefox https://www.twitch.tv/directory
+            ;;
+        "Youtube")                    
+            firefox https://www.youtube.com
+             ;; 
+    esac
+fi   
