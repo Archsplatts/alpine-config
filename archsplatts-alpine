@@ -28,7 +28,7 @@ echo -e "${JAUNE}[1/10] Mise à jour du système${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 apk update
-apk upgrade -y
+apk upgrade
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[2/10] Installation des outils terminal${NC}"
@@ -53,7 +53,6 @@ TERM_PKGS=(
 )
 
 apk add "${TERM_PKGS[@]}"
-chsh -s /bin/zsh
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[3/10] Installation des locales${NC}"
@@ -116,14 +115,14 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 echo -e "${JAUNE}[8/10] Copie des dotfiles${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
-mkdir -p ~/.scripts
-mkdir -p ~/Images/Wallpapers
-cd ~/alpine-config
-cp zshrc ~/.zshrc
-cp -r config/* ~/.config
-cp papirus-folders ~/.scripts
-cp cabin-2.jpg ~/Images/Wallpapers
-chmod u+x ~/.scripts/papirus-folders
+mkdir -p $HOME/.scripts
+mkdir -p $HOME/Images/Wallpapers
+cd $HOME/alpine-config
+cp zshrc $HOME/.zshrc
+cp -r config/* $HOME/.config
+cp papirus-folders $HOME/.scripts
+cp cabin-2.jpg $HOME/Images/Wallpapers
+chmod u+x $HOME/.scripts/papirus-folders
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[9/10] Activation du pare-feu${NC}"
@@ -138,7 +137,7 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 git clone https://github.com/catppuccin/papirus-folders.git
 cd papirus-folders
 cp -r src/* /usr/share/icons/Papirus  
-~/.scripts/papirus-folders -C cat-mocha-blue
+$HOME/.scripts/papirus-folders -C cat-mocha-blue
 
 echo -e "${VERT}╔════════════════════════════════════════╗${NC}"
 echo -e "${VERT}║  Installation terminée avec succès !   ║${NC}"
