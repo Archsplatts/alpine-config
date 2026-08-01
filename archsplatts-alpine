@@ -43,6 +43,7 @@ TERM_PKGS=(
  	"eza"
  	"micro" 
  	"starship"
+	"sudo"
  	"trash-cli"
  	"unzip"
 	"xdg-user-dirs"
