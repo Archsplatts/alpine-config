@@ -41,6 +41,7 @@ TERM_PKGS=(
  	"calcurse" 
  	"dust" 
  	"eza"
+	"fastfetch"
  	"micro" 
  	"starship"
 	"sudo"
