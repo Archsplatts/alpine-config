@@ -61,7 +61,7 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 echo -e "${JAUNE}[3/9] Installation des locales${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
-apk add musl-locales musl-locales-lang xfdesktop-lang thunar-lang
+apk add musl-locales musl-locales-lang xfdesktop-lang 
 echo 'export LANG=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
 echo 'export LC_ALL=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
 
@@ -71,6 +71,7 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 
 setup-xorg-base
 setup-desktop xfce
+apk add thunar-lang xfce4-panel-lang
 xdg-user-dirs-update
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
