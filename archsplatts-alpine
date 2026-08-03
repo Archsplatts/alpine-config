@@ -58,38 +58,82 @@ TERM_PKGS=(
 apk add "${TERM_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[3/9] Installation des locales${NC}"
-echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
-
-apk add musl-locales musl-locales-lang xfdesktop-lang 
-echo 'export LANG=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
-echo 'export LC_ALL=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
-
-echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[4/9] Installation de l'environnement${NC}"
+echo -e "${JAUNE}[3/9] Installation de l'environnement${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 setup-xorg-base
 setup-desktop xfce
-apk add thunar-lang xfce4-panel-lang
+apk add pavucontrol
+
+XFCE_PLUGINS=(
+	"xfce4-clipman-plugin"
+	"xfce4-notifyd"
+	"xfce4-pulseaudio-plugin"
+	"xfce4-screenshooter"
+	"xfce4-whiskermenu-plugin"
+)
+
+apk add "${XFCE_PLUGINS[@]}"
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[4/9] Installation des locales${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+PKGS_LANG=(
+	 "audacity-lang"
+	 "evince-lang"
+	 "galculator-lang"
+	 "geany-lang"
+	 "gnome-disk-utility-lang"
+	 "lightdm-gtk-greeter-lang"
+	 "lightdm-lang"
+	 "lightdm-settings-lang"
+	 "lollypop-lang"
+	 "musl-locales"
+	 "musl-locales-lang"
+	 "pavucontrol-lang"
+	 "rhythmbox-lang"
+	 "ristretto-lang"
+	 "thunar-archive-plugin-lang"
+	 "thunar-lang"
+	 "thunar-volman-lang"
+	 "xarchiver-lang"
+	 "xfce4-clipman-plugin-lang"
+	 "xfce4-notifyd-lang"
+	 "xfce4-panel-lang"
+	 "xfce4-pulseaudio-plugin-lang"
+	 "xfce4-screenshooter-lang"
+	 "xfce4-session-lang"
+	 "xfce4-settings-lang"
+	 "xfce4-terminal-lang"
+	 "xfce4-whiskermenu-plugin-lang"
+	 "xfdesktop-lang"
+)
+
+apk add "${PKGS_LANG[@]}"
+
+echo 'export LANG=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
+echo 'export LC_ALL=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
+
 xdg-user-dirs-update
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[5/9] Installation des paquets audio${NC}"
+echo -e "${JAUNE}[5/8] Installation des paquets audio${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 apk add pipewire pipewire-pulse pipewire-alsa wireplumber  
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[6/9] Installation des programmes${NC}"
+echo -e "${JAUNE}[6/8] Installation des programmes${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 APPS_PKGS=(
 	"audacity"
-	"gnome-disk-utility" 
+	"evince"
 	"firefox" 
 	"galculator" 
 	"geany"
+	"gnome-disk-utility"
 	"lollypop"
 	"mpv"
 	"qbittorrent"
@@ -98,14 +142,12 @@ APPS_PKGS=(
 	"thunderbird"
 	"ufw"
 	"xarchiver"
-	"zathura"
-	"zathura-pdf-mupdf"
 )
 
 apk add "${APPS_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[7/9] Installation des icones & polices${NC}"
+echo -e "${JAUNE}[7/8] Installation des icones & polices${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 THEME_PKGS=(
@@ -118,19 +160,10 @@ THEME_PKGS=(
 apk add "${THEME_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[8/9] Activation du pare-feu${NC}"
+echo -e "${JAUNE}[8/8] Activation du pare-feu${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 rc-update add ufw
-
-echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[9/9] Installation de catppuccin papirus${NC}"
-echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
-
-git clone https://github.com/catppuccin/papirus-folders.git
-cd papirus-folders
-cp -r src/* /usr/share/icons/Papirus  
-$HOME/.scripts/papirus-folders -C cat-mocha-blue
 
 echo -e "${VERT}╔════════════════════════════════════════╗${NC}"
 echo -e "${VERT}║  Installation terminée avec succès !   ║${NC}"
