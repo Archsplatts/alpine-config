@@ -1,0 +1,11 @@
+Commande															Raccourci
+
+alacritty															Super+Entrée
+alacritty -e btop													Super+Echap
+alacritty -e sh -c "sudo apk -U upgrade; exec \$SHELL"				Super+U
+firefox																Super+B
+pavucontrol															Maj+Super+P	
+rofi -show drun -config $HOME/.config/rofi/applications-menu.rasi	Super+D
+thunar																Super+E
+xfce4-session-logout												Super+P
+xfce4-settings-manager												Super+C
