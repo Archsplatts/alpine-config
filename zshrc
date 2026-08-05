@@ -5,8 +5,11 @@ export MICRO_TRUECOLOR=1
 ##   APK
 alias add="sudo apk add"
 alias del="sudo apk del -r"
+alias info="apk info -a"
+alias list="apk info"
+alias orphans="apk list --orphaned"
 alias search="apk search"
-alias update="sudo apk update && sudo apk upgrade"
+alias update="sudo apk -U upgrade"
 
 ##   Utilitaires
 alias c="clear"
