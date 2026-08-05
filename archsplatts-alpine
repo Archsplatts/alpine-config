@@ -24,14 +24,14 @@ if [ -t 0 ]; then
 fi   
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[1/9] Mise à jour du système${NC}"
+echo -e "${JAUNE}[1/8] Mise à jour du système${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 apk update
 apk upgrade
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[2/9] Installation des outils terminal${NC}"
+echo -e "${JAUNE}[2/8] Installation des outils terminal${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 TERM_PKGS=(
@@ -58,7 +58,7 @@ TERM_PKGS=(
 apk add "${TERM_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[3/9] Installation de l'environnement${NC}"
+echo -e "${JAUNE}[3/8] Installation de l'environnement${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 setup-xorg-base
@@ -76,7 +76,7 @@ XFCE_PLUGINS=(
 apk add "${XFCE_PLUGINS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[4/9] Installation des locales${NC}"
+echo -e "${JAUNE}[4/8] Installation des locales${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 PKGS_LANG=(
