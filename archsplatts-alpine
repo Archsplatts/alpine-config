@@ -65,6 +65,7 @@ setup-desktop xfce
 apk add pavucontrol
 
 XFCE_PLUGINS=(
+	"thunar-archive-plugin"	
 	"xfce4-clipman-plugin"
 	"xfce4-notifyd"
 	"xfce4-pulseaudio-plugin"
