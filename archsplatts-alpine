@@ -24,13 +24,13 @@ if [ -t 0 ]; then
 fi   
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[1/8] Mise à jour du système${NC}"
+echo -e "${JAUNE}[1/9] Mise à jour du système${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 apk -U upgrade
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[2/8] Installation des outils terminal${NC}"
+echo -e "${JAUNE}[2/9] Installation des outils terminal${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 TERM_PKGS=(
@@ -57,7 +57,7 @@ TERM_PKGS=(
 apk add "${TERM_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[3/8] Installation de l'environnement${NC}"
+echo -e "${JAUNE}[3/9] Installation de l'environnement${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 setup-xorg-base
@@ -76,7 +76,7 @@ XFCE_PLUGINS=(
 apk add "${XFCE_PLUGINS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[4/8] Installation des locales${NC}"
+echo -e "${JAUNE}[4/9] Installation des locales${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 PKGS_LANG=(
@@ -118,13 +118,13 @@ echo 'export LC_ALL=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
 xdg-user-dirs-update
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[5/8] Installation des paquets audio${NC}"
+echo -e "${JAUNE}[5/9] Installation des paquets audio${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 apk add pipewire pipewire-pulse pipewire-alsa wireplumber  
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[6/8] Installation des programmes${NC}"
+echo -e "${JAUNE}[6/9] Installation des programmes${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 APPS_PKGS=(
@@ -146,7 +146,7 @@ APPS_PKGS=(
 apk add "${APPS_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[7/8] Installation des icones & polices${NC}"
+echo -e "${JAUNE}[7/9] Installation des icones & polices${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 THEME_PKGS=(
@@ -159,11 +159,19 @@ THEME_PKGS=(
 apk add "${THEME_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[8/8] Activation du pare-feu${NC}"
+echo -e "${JAUNE}[8/9] Activation du pare-feu${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 rc-update add ufw
 ufw enable
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[9/9] Réglage de l'horloge${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+apk add chrony
+rc-service chronyd start
+rc-update add chronyd
 
 echo -e "${VERT}╔════════════════════════════════════════╗${NC}"
 echo -e "${VERT}║  Installation terminée avec succès !   ║${NC}"
