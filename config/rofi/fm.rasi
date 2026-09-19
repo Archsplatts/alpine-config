@@ -16,6 +16,9 @@ configuration {
     display-recursivebrowser: "   Fichiers";          
     display-filebrowser: "  Fichiers"; 
     kb-delete-entry: "Shift+Delete"; 
+	hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
  }
 
 filebrowser {
