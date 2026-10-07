@@ -11,6 +11,15 @@ alias orphans="apk list --orphaned"
 alias search="apk search"
 alias update="sudo apk -U upgrade"
 
+##   Flatpak
+alias fpi="flatpak install"
+alias fpd="flatpak uninstall --delete-data"
+alias fpl="flatpak list"
+alias fpm="flatpak mask"
+alias fpo="flatpak uninstall --unused"
+alias fps="flatpak search"
+alias fpu="flatpak update"
+
 ##   Utilitaires
 alias c="clear"
 alias cache="dust .cache"
