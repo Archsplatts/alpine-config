@@ -168,9 +168,11 @@ echo -e "${JAUNE}[9/9] Copie des dotfiles${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 mkdir -p $HOME/.config
+mkdir -p $HOME/.local/share/xfce4/terminal/colorschemes
 mkdir -p $HOME/.scripts
 mkdir -p $HOME/Images/Wallpapers
 cp  $HOME/alpine-config/cabin-2.jpg $HOME/Images/Wallpapers
+cp $HOME/alpine-config/catppuccin-mocha.theme $HOME/.local/share/xfce4/terminal/colorschemes/
 cp -r $HOME/alpine-config/config/* $HOME/.config
 cp $HOME/alpine-config/papirus-folders $HOME/.scripts
 cp $HOME/alpine-config/profile $HOME/.profile
