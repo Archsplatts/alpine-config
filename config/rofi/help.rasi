@@ -11,7 +11,7 @@ window {
 	border-color:		@teal;
 	border-radius:	  	8px;
 	margin: 			0px 0px 0px 8px;	    
-    width:            	32%;        
+    width:            	30%;        
 }
 
 mainbox {
