@@ -8,7 +8,7 @@ window {
 	background-color:	rgba(30,30,46,0.90);  
 	transparency:		"real";
 	border:           	3px;
-	border-color:		@teal;
+	border-color:		@blue;
 	border-radius:	  	8px;
 	margin: 			0px 0px 0px 8px;	    
     width:            	30%;        
