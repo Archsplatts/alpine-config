@@ -1,9 +1,7 @@
 #!/bin/bash
 
-options="ArchWiki\0icon\x1fdistributor-logo-archlinux
-BraveSearch\0icon\x1fbrave
-Korben\0icon\x1fdistributor-logo-calculate-linux
-ManjaroForum\0icon\x1fmanjaro
+options="AlpineWiki\0icon\x1fdistributor-logo-alpine
+AskBrave\0icon\x1fgnome-robots
 Movix\0icon\x1fcom.github.artemanufrij.playmyvideos
 ProtonDB\0icon\x1fdistributor-logo-steamos
 Twitch\0icon\x1ftwitch-indicator
@@ -13,18 +11,12 @@ selection=$(echo -e "$options" | rofi -dmenu -show-icons -icon-theme "Papirus" -
 
 if [[ -n "$selection" ]]; then
     case "$selection" in
-        "ArchWiki")
-            firefox https://wiki.archlinux.org
+        "AlpineWiki")
+            firefox https://wiki.alpinelinux.org/wiki/Main_Page
             ;;
-   		"BraveSearch")
-   		   	firefox https://search.brave.com 
+   		"AskBrave")
+   		   	firefox https://search.brave.com/ask 
    		   	 ;;     
-  		"Korben")
-  			firefox https://korben.info
-  			;;          
-		"ManjaroForum")
-			firefox https://forum.manjaro.org/c/announcements/11
-			;;
 		"Movix")
 			firefox https://movix.bet
 			;;
