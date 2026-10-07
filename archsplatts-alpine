@@ -95,6 +95,7 @@ PKGS_LANG=(
 	 "thunar-lang"
 	 "thunar-volman-lang"
 	 "xarchiver-lang"
+	 "xdg-user-dirs-gtk-lang"
 	 "xfce4-clipman-plugin-lang"
 	 "xfce4-notifyd-lang"
 	 "xfce4-panel-lang"
