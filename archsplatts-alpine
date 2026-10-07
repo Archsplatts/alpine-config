@@ -125,6 +125,7 @@ echo -e "${JAUNE}[6/9] Installation des programmes${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 APPS_PKGS=(
+	"chrony"	
 	"evince"
 	"firefox" 
 	"galculator" 
@@ -154,19 +155,27 @@ THEME_PKGS=(
 apk add "${THEME_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[8/9] Activation du pare-feu${NC}"
+echo -e "${JAUNE}[8/9] Activation des services${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 rc-update add ufw
 ufw enable
-
-echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${JAUNE}[9/9] Réglage de l'horloge${NC}"
-echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
-
-apk add chrony
 rc-service chronyd start
 rc-update add chronyd
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[9/9] Copie des dotfiles${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+mkdir -p $HOME/.config
+mkdir -p $HOME/.scripts
+mkdir -p $HOME/Images/Wallpapers
+cp  $HOME/alpine-config/cabin-2.jpg $HOME/Images/Wallpapers
+cp -r $HOME/alpine-config/config/* $HOME/.config
+cp $HOME/alpine-config/papirus-folders $HOME/.scripts
+cp $HOME/alpine-config/zprofile $HOME/.zprofile
+cp $HOME/alpine-config/zshrc $HOME/.zshrc
+chmod u+x $HOME/.config/rofi/scripts/*
 
 echo -e "${VERT}╔════════════════════════════════════════╗${NC}"
 echo -e "${VERT}║  Installation terminée avec succès !   ║${NC}"
