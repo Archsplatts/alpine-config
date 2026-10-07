@@ -22,7 +22,6 @@ alias fpu="flatpak update"
 
 ##   Utilitaires
 alias c="clear"
-alias cache="dust .cache"
 alias conf="yazi .config"
 alias ff="fastfetch"
 alias fm="yazi"
@@ -30,6 +29,7 @@ alias ls="eza --icons -1 --group-directories-first"
 alias pfc="$HOME/.scripts/papirus-folders -C"
 alias pfl="$HOME/.scripts/papirus-folders -l"
 alias rm="trash -v"
+alias svl="rc-update show boot"
 alias zshrc="micro $HOME/.zshrc && source $HOME/.zshrc"
 
 ## History file for zsh
