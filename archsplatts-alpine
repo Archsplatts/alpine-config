@@ -61,7 +61,7 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 
 setup-xorg-base
 setup-desktop xfce
-apk add pavucontrol 
+apk add pavucontrol ristretto
 
 XFCE_PLUGINS=(
 	"thunar-archive-plugin"	
