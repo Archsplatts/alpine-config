@@ -60,9 +60,9 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 echo -e "${JAUNE}[3/9] Installation de l'environnement${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
-setup-xorg-base
-setup-desktop xfce
-apk add mousepad pavucontrol ristretto
+sudo setup-xorg-base
+sudo setup-desktop xfce
+sudo apk add mousepad pavucontrol ristretto
 
 XFCE_PLUGINS=(
 	"thunar-archive-plugin"	
@@ -120,7 +120,7 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 echo -e "${JAUNE}[5/9] Installation des paquets audio${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
-apk add pipewire pipewire-pulse pipewire-alsa wireplumber  
+sudo apk add pipewire pipewire-pulse pipewire-alsa wireplumber  
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[6/9] Installation des programmes${NC}"
