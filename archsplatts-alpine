@@ -109,10 +109,6 @@ PKGS_LANG=(
 )
 
 sudo apk add "${PKGS_LANG[@]}"
-
-echo 'export LANG=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
-echo 'export LC_ALL=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
-
 xdg-user-dirs-update
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
