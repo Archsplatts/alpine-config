@@ -54,7 +54,6 @@ TERM_PKGS=(
 )
 
 sudo apk add "${TERM_PKGS[@]}"
-sudo chsh -s /bin/zsh $USER
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[3/9] Installation de l'environnement${NC}"
