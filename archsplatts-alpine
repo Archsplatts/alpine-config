@@ -27,7 +27,7 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 echo -e "${JAUNE}[1/9] Mise à jour du système${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
-apk -U upgrade
+sudo apk -U upgrade
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[2/9] Installation des outils terminal${NC}"
@@ -53,7 +53,8 @@ TERM_PKGS=(
  	"zsh-syntax-highlighting"
 )
 
-apk add "${TERM_PKGS[@]}"
+sudo apk add "${TERM_PKGS[@]}"
+sudo chsh -s /bin/zsh $USER
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[3/9] Installation de l'environnement${NC}"
@@ -72,7 +73,7 @@ XFCE_PLUGINS=(
 	"xfce4-whiskermenu-plugin"
 )
 
-apk add "${XFCE_PLUGINS[@]}"
+sudo apk add "${XFCE_PLUGINS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[4/9] Installation des locales${NC}"
@@ -108,7 +109,7 @@ PKGS_LANG=(
 	 "xfdesktop-lang"
 )
 
-apk add "${PKGS_LANG[@]}"
+sudo apk add "${PKGS_LANG[@]}"
 
 echo 'export LANG=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
 echo 'export LC_ALL=fr_FR.UTF-8' >> /etc/profile.d/locale.sh
@@ -141,7 +142,7 @@ APPS_PKGS=(
 	"xarchiver"
 )
 
-apk add "${APPS_PKGS[@]}"
+sudo apk add "${APPS_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[7/9] Installation des icones & polices${NC}"
@@ -154,16 +155,16 @@ THEME_PKGS=(
 	"papirus-icon-theme"
 ) 
 
-apk add "${THEME_PKGS[@]}"
+sudo apk add "${THEME_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[8/9] Activation des services${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
-rc-update add ufw
-ufw enable
-rc-service chronyd start
-rc-update add chronyd
+sudo rc-update add ufw
+sudo ufw enable
+sudo rc-service chronyd start
+sudo rc-update add chronyd
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[9/9] Copie des dotfiles${NC}"
