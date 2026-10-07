@@ -61,7 +61,7 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 
 setup-xorg-base
 setup-desktop xfce
-apk add lightdm-settings pavucontrol 
+apk add pavucontrol 
 
 XFCE_PLUGINS=(
 	"thunar-archive-plugin"	
@@ -84,7 +84,6 @@ PKGS_LANG=(
 	 "gnome-disk-utility-lang"
 	 "lightdm-gtk-greeter-lang"
 	 "lightdm-lang"
-	 "lightdm-settings-lang"
 	 "lollypop-lang"
 	 "musl-locales"
 	 "musl-locales-lang"
