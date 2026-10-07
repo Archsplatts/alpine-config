@@ -61,7 +61,7 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 
 setup-xorg-base
 setup-desktop xfce
-apk add pavucontrol ristretto
+apk add mousepad pavucontrol ristretto
 
 XFCE_PLUGINS=(
 	"thunar-archive-plugin"	
@@ -85,6 +85,7 @@ PKGS_LANG=(
 	 "lightdm-gtk-greeter-lang"
 	 "lightdm-lang"
 	 "lollypop-lang"
+	 "mousepad-lang"
 	 "musl-locales"
 	 "musl-locales-lang"
 	 "pavucontrol-lang"
