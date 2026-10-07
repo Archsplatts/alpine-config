@@ -134,6 +134,7 @@ APPS_PKGS=(
 	"lollypop"
 	"mpv"
 	"qbittorrent"
+	"redshift"
 	"rofi"
 	"thunderbird"
 	"ufw"
