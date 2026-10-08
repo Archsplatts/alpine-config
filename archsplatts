@@ -1,0 +1,186 @@
+#!/bin/bash
+
+set -euo pipefail
+
+VERT='\033[0;32m'
+JAUNE='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${VERT}                                   ▄▄                    ${NC}"
+echo -e "${VERT}                  █▄                ██       █▄  █▄      ${NC}"
+echo -e "${VERT}       ▄          ██                ██      ▄██▄▄██▄     ${NC}"
+echo -e "${VERT} ▄▀▀█▄ ████▄▄███▀ ████▄ ▄██▀█ ████▄ ██ ▄▀▀█▄ ██  ██ ▄██▀█${NC}"
+echo -e "${VERT} ▄█▀██ ██   ██    ██ ██ ▀███▄ ██ ██ ██ ▄█▀██ ██  ██ ▀███▄${NC}"
+echo -e "${VERT}▄▀█▄██▄█▀  ▄▀███▄▄██ ███▄▄██▀▄████▀▄██▄▀█▄██▄██ ▄███▄▄██▀${NC}"
+echo -e "${VERT}                              ██                         ${NC}"
+echo -e "${VERT}                              ▀                          ${NC}"
+
+echo -e "${JAUNE}Bienvenue dans le script de configuration Archsplatts Alpine Linux!${NC}\n"
+
+echo -e "${JAUNE}(Veuillez activer le dépôt community dans /etc/apk/repositories avant de commencer)${NC}\n"
+
+if [ -t 0 ]; then
+    read -p "Appuyez sur Entrée pour continuer... "
+fi   
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[1/9] Mise à jour du système${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+sudo apk -U upgrade
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[2/9] Installation des outils terminal${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+TERM_PKGS=(
+ 	"bat" 
+ 	"btop" 
+ 	"calcurse" 
+ 	"dust" 
+ 	"eza"
+	"fastfetch"
+ 	"micro" 
+ 	"starship"
+	"sudo"
+ 	"trash-cli"
+ 	"unzip"
+	"xdg-user-dirs"
+ 	"yazi" 
+	"zip"
+ 	"zsh" 
+ 	"zsh-autosuggestions" 
+ 	"zsh-syntax-highlighting"
+)
+
+sudo apk add "${TERM_PKGS[@]}"
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[3/9] Installation de l'environnement${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+sudo setup-xorg-base
+sudo setup-desktop xfce
+sudo apk add mousepad pavucontrol ristretto
+
+XFCE_PLUGINS=(
+	"thunar-archive-plugin"	
+	"xfce4-clipman-plugin"
+	"xfce4-notifyd"
+	"xfce4-pulseaudio-plugin"
+	"xfce4-screenshooter"
+	"xfce4-whiskermenu-plugin"
+)
+
+sudo apk add "${XFCE_PLUGINS[@]}"
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[4/9] Installation des locales${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+PKGS_LANG=(
+	 "evince-lang"
+	 "galculator-lang"
+	 "gnome-disk-utility-lang"
+	 "lightdm-gtk-greeter-lang"
+	 "lightdm-lang"
+	 "lollypop-lang"
+	 "mousepad-lang"
+	 "musl-locales"
+	 "musl-locales-lang"
+	 "pavucontrol-lang"
+	 "rhythmbox-lang"
+	 "ristretto-lang"
+	 "thunar-archive-plugin-lang"
+	 "thunar-lang"
+	 "thunar-volman-lang"
+	 "xarchiver-lang"
+	 "xdg-user-dirs-gtk-lang"
+	 "xfce4-clipman-plugin-lang"
+	 "xfce4-notifyd-lang"
+	 "xfce4-panel-lang"
+	 "xfce4-pulseaudio-plugin-lang"
+	 "xfce4-screenshooter-lang"
+	 "xfce4-session-lang"
+	 "xfce4-settings-lang"
+	 "xfce4-terminal-lang"
+	 "xfce4-whiskermenu-plugin-lang"
+	 "xfdesktop-lang"
+)
+
+sudo apk add "${PKGS_LANG[@]}"
+xdg-user-dirs-update
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[5/9] Installation des paquets audio${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+sudo apk add pipewire pipewire-pulse pipewire-alsa wireplumber  
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[6/9] Installation des programmes${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+APPS_PKGS=(
+	"chrony"	
+	"evince"
+	"firefox" 
+	"galculator" 
+	"gnome-disk-utility"
+	"lollypop"
+	"mpv"
+	"qbittorrent"
+	"redshift"
+	"rofi"
+	"thunderbird"
+	"ufw"
+	"xarchiver"
+)
+
+sudo apk add "${APPS_PKGS[@]}"
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[7/9] Installation des icones & polices${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+THEME_PKGS=(
+	"breeze-cursors"
+	"font-ubuntu-mono-nerd" 
+	"font-ubuntu-nerd" 
+	"papirus-icon-theme"
+) 
+
+sudo apk add "${THEME_PKGS[@]}"
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[8/9] Activation des services${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+sudo rc-update add ufw
+sudo ufw enable
+sudo rc-service chronyd start
+sudo rc-update add chronyd
+
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${JAUNE}[9/9] Copie des dotfiles${NC}"
+echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
+
+mkdir -p $HOME/.config
+mkdir -p $HOME/.local/share/applications
+mkdir -p $HOME/.local/share/xfce4/terminal/colorschemes
+mkdir -p $HOME/.scripts
+mkdir -p $HOME/Images/Wallpapers
+cp -r $HOME/alpine-config/applications/* $HOME/.local/share/applications/
+cp  $HOME/alpine-config/cabin-2.jpg $HOME/Images/Wallpapers
+cp $HOME/alpine-config/catppuccin-mocha.theme $HOME/.local/share/xfce4/terminal/colorschemes/
+cp -r $HOME/alpine-config/config/* $HOME/.config
+cp $HOME/alpine-config/papirus-folders $HOME/.scripts
+cp $HOME/alpine-config/profile $HOME/.profile
+cp $HOME/alpine-config/zshrc $HOME/.zshrc
+chmod u+x $HOME/.config/rofi/scripts/*
+
+echo -e "${VERT}╔════════════════════════════════════════╗${NC}"
+echo -e "${VERT}║  Installation terminée avec succès !   ║${NC}"
+echo -e "${VERT}╚════════════════════════════════════════╝${NC}\n"
+
+echo -e "${JAUNE}⚠ Veuillez redémarrer votre système pour appliquer tous les changements.${NC}\n"
