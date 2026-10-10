@@ -3,13 +3,13 @@ export EDITOR="micro"
 export MICRO_TRUECOLOR=1
 
 ##   APK
-alias add="sudo apk add"
-alias del="sudo apk del -r"
+alias add="doas apk add"
+alias del="doas apk del -r"
 alias info="apk info -a"
 alias list="apk info"
 alias orphans="apk list --orphaned"
 alias search="apk search"
-alias update="sudo apk -U upgrade"
+alias update="doas apk -U upgrade"
 
 ##   Flatpak
 alias fpi="flatpak install"
