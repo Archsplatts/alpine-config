@@ -27,7 +27,7 @@ echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━
 echo -e "${JAUNE}[1/9] Mise à jour du système${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
-sudo apk -U upgrade
+doas apk -U upgrade
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[2/9] Installation des outils terminal${NC}"
@@ -42,8 +42,7 @@ TERM_PKGS=(
 	"fastfetch"
  	"micro" 
  	"starship"
-	"sudo"
- 	"trash-cli"
+	"trash-cli"
  	"unzip"
 	"xdg-user-dirs"
  	"yazi" 
@@ -53,15 +52,15 @@ TERM_PKGS=(
  	"zsh-syntax-highlighting"
 )
 
-sudo apk add "${TERM_PKGS[@]}"
+doas apk add "${TERM_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[3/9] Installation de l'environnement${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
-sudo setup-xorg-base
-sudo setup-desktop xfce
-sudo apk add mousepad pavucontrol ristretto
+doas setup-xorg-base
+doas setup-desktop xfce
+doas apk add mousepad pavucontrol ristretto
 
 XFCE_PLUGINS=(
 	"thunar-archive-plugin"	
@@ -72,7 +71,7 @@ XFCE_PLUGINS=(
 	"xfce4-whiskermenu-plugin"
 )
 
-sudo apk add "${XFCE_PLUGINS[@]}"
+doas apk add "${XFCE_PLUGINS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[4/9] Installation des locales${NC}"
@@ -108,14 +107,14 @@ PKGS_LANG=(
 	 "xfdesktop-lang"
 )
 
-sudo apk add "${PKGS_LANG[@]}"
+doas apk add "${PKGS_LANG[@]}"
 xdg-user-dirs-update
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[5/9] Installation des paquets audio${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
-sudo apk add pipewire pipewire-pulse pipewire-alsa wireplumber  
+doas apk add pipewire pipewire-pulse pipewire-alsa wireplumber  
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[6/9] Installation des programmes${NC}"
@@ -137,7 +136,7 @@ APPS_PKGS=(
 	"xarchiver"
 )
 
-sudo apk add "${APPS_PKGS[@]}"
+doas apk add "${APPS_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[7/9] Installation des icones & polices${NC}"
@@ -150,16 +149,16 @@ THEME_PKGS=(
 	"papirus-icon-theme"
 ) 
 
-sudo apk add "${THEME_PKGS[@]}"
+doas apk add "${THEME_PKGS[@]}"
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[8/9] Activation des services${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
-sudo rc-update add ufw
-sudo ufw enable
-sudo rc-service chronyd start
-sudo rc-update add chronyd
+doas rc-update add ufw
+doas ufw enable
+doas rc-service chronyd start
+doas rc-update add chronyd
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[9/9] Copie des dotfiles${NC}"
