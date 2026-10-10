@@ -9,7 +9,7 @@ configuration {
 
 window {
 	border:           	3px;
-	border-color:		@teal;
+	border-color:		@blue;
 	modi: 				"drun,run";
 	show-icons: 		true;
 	icon-theme: 		"Papirus";
@@ -64,7 +64,7 @@ element alternate normal {
 element selected normal, element selected active {  
 	background-color: 	inherit;
     border-radius: 		8px;    
-    text-color:        	@teal;
+    text-color:        	@blue;
 }
 
 element-text {
