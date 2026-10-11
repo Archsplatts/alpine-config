@@ -121,11 +121,13 @@ echo -e "${JAUNE}[6/9] Installation des programmes${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 APPS_PKGS=(
+	"autotiling
 	"chrony"	
 	"evince"
 	"firefox" 
 	"galculator" 
 	"gnome-disk-utility"
+	"i3wm"
 	"lollypop"
 	"mpv"
 	"picom"
