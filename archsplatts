@@ -121,7 +121,7 @@ echo -e "${JAUNE}[6/9] Installation des programmes${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 APPS_PKGS=(
-	"autotiling
+	"autotiling"
 	"chrony"	
 	"evince"
 	"firefox" 
