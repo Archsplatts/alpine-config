@@ -177,10 +177,11 @@ cp -r $HOME/alpine-config/applications/* $HOME/.local/share/applications/
 cp  $HOME/alpine-config/cabin-2.jpg $HOME/Images/Wallpapers
 cp $HOME/alpine-config/catppuccin-mocha.theme $HOME/.local/share/xfce4/terminal/colorschemes/
 cp -r $HOME/alpine-config/config/* $HOME/.config
-cp $HOME/alpine-config/papirus-folders $HOME/.scripts
+cp -r $HOME/alpine-config/scripts/* $HOME/.scripts
 cp $HOME/alpine-config/profile $HOME/.profile
 cp $HOME/alpine-config/zshrc $HOME/.zshrc
 chmod u+x $HOME/.config/rofi/scripts/*
+chmod u+x $HOME/.scripts/*
 
 echo -e "${VERT}╔════════════════════════════════════════╗${NC}"
 echo -e "${VERT}║  Installation terminée avec succès !   ║${NC}"
