@@ -124,6 +124,7 @@ APPS_PKGS=(
 	"autotiling"
 	"chrony"	
 	"evince"
+	"feh"
 	"firefox" 
 	"galculator" 
 	"gnome-disk-utility"
