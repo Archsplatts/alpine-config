@@ -22,6 +22,7 @@ alias fpu="flatpak update"
 
 ##   Utilitaires
 alias c="clear"
+alias class="xprop | grep WM_CLASS"
 alias conf="yazi .config"
 alias ff="fastfetch"
 alias fm="yazi"
