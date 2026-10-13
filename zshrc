@@ -2,7 +2,7 @@ export BAT_THEME="Catppuccin Mocha"
 export EDITOR="micro"
 export MICRO_TRUECOLOR=1
 
-##   APK
+#   APK
 alias add="doas apk add"
 alias del="doas apk del -r"
 alias info="apk info -a"
@@ -11,7 +11,7 @@ alias orphans="apk list --orphaned"
 alias search="apk search"
 alias update="doas apk -U upgrade"
 
-##   Flatpak
+#   FLATPAK
 alias fpi="flatpak install"
 alias fpd="flatpak uninstall --delete-data"
 alias fpl="flatpak list"
@@ -20,7 +20,7 @@ alias fpo="flatpak uninstall --unused"
 alias fps="flatpak search"
 alias fpu="flatpak update"
 
-##   Utilitaires
+#   UTILS
 alias c="clear"
 alias class="xprop | grep WM_CLASS"
 alias conf="yazi .config"
