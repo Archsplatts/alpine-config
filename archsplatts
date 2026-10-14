@@ -34,7 +34,6 @@ echo -e "${JAUNE}[2/9] Installation des outils terminal${NC}"
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}\n"
 
 TERM_PKGS=(
-	"android-tools"
 	"bat" 
  	"btop" 
  	"calcurse" 
