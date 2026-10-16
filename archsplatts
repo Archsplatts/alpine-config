@@ -16,7 +16,6 @@ echo -e "${VERT}                              ██                         ${N
 echo -e "${VERT}                              ▀                          ${NC}"
 
 echo -e "${JAUNE}Bienvenue dans le script de configuration Archsplatts Alpine Linux!${NC}\n"
-
 echo -e "${JAUNE}(Veuillez activer le dépôt community dans /etc/apk/repositories avant de commencer)${NC}\n"
 
 if [ -t 0 ]; then
