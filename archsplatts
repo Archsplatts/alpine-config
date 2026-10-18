@@ -176,6 +176,7 @@ cp $HOME/alpine-config/catppuccin-mocha.theme $HOME/.local/share/xfce4/terminal/
 cp -r $HOME/alpine-config/config/* $HOME/.config
 cp -r $HOME/alpine-config/scripts/* $HOME/.scripts
 cp $HOME/alpine-config/profile $HOME/.profile
+source $HOME/.profile
 cp $HOME/alpine-config/zshrc $HOME/.zshrc
 chmod u+x $HOME/.config/rofi/scripts/*
 chmod u+x $HOME/.scripts/*
