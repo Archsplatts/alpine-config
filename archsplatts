@@ -170,16 +170,19 @@ mkdir -p $HOME/.local/share/applications
 mkdir -p $HOME/.local/share/xfce4/terminal/colorschemes
 mkdir -p $HOME/.scripts
 mkdir -p $HOME/Images/Wallpapers
+
 cp -r $HOME/alpine-config/applications/* $HOME/.local/share/applications/
 cp  $HOME/alpine-config/cabin-2.jpg $HOME/Images/Wallpapers
 cp $HOME/alpine-config/catppuccin-mocha.theme $HOME/.local/share/xfce4/terminal/colorschemes/
 cp -r $HOME/alpine-config/config/* $HOME/.config
 cp -r $HOME/alpine-config/scripts/* $HOME/.scripts
 cp $HOME/alpine-config/profile $HOME/.profile
-source $HOME/.profile
 cp $HOME/alpine-config/zshrc $HOME/.zshrc
+
 chmod u+x $HOME/.config/rofi/scripts/*
 chmod u+x $HOME/.scripts/*
+
+source $HOME/.profile
 xdg-user-dirs-update
 
 echo -e "${VERT}╔════════════════════════════════════════╗${NC}"
