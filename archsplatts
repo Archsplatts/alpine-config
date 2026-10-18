@@ -107,7 +107,6 @@ PKGS_LANG=(
 )
 
 doas apk add "${PKGS_LANG[@]}"
-xdg-user-dirs-update
 
 echo -e "${JAUNE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${JAUNE}[5/9] Installation des paquets audio${NC}"
@@ -180,6 +179,7 @@ cp $HOME/alpine-config/profile $HOME/.profile
 cp $HOME/alpine-config/zshrc $HOME/.zshrc
 chmod u+x $HOME/.config/rofi/scripts/*
 chmod u+x $HOME/.scripts/*
+xdg-user-dirs-update
 
 echo -e "${VERT}╔════════════════════════════════════════╗${NC}"
 echo -e "${VERT}║  Installation terminée avec succès !   ║${NC}"
