@@ -128,6 +128,7 @@ APPS_PKGS=(
 	"lollypop"
 	"mpv"
 	"picom"
+	"poppler"
 	"qbittorrent"
 	"redshift"
 	"rofi"
